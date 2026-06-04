@@ -6,19 +6,21 @@
  * }
  */
 /**
- * @param {ListNode}
+ * @param {ListNode} head
  * @return {ListNode}
  */
 var reverseList = function (head) {
-  let curr = head;
 
-  let prev = null;
-  while (curr) {
-    let temp = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = temp;
-  }
+    let prev = null
+    let curr = head;
 
-  return prev;
+    while (curr) {
+
+        let next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    return prev
 };
