@@ -15,7 +15,7 @@ function mergeArrayWithBruteForce(num1, num2) {
   num1.sort((a, b) => a - b);
 }
 
-function mergeArray(num1, m, num2, n) {
+function mergeArrayWithBetter(num1, m, num2, n) {
   let num1copy = num1.splice(0, n);
   let p1 = 0;
   let p2 = 0;
@@ -33,6 +33,28 @@ function mergeArray(num1, m, num2, n) {
   }
   while (p2 < n) {
     num1[i++] = num2[p2++];
+  }
+}
+function mergeArray(num1, m, num2, n) {
+  let p1 = m - 1;
+  let p2 = n - 1;
+  let p = m + n - 1;
+
+  while (p1 >= 0 && p2 >= 0) {
+    if (num1[p1] < num2[p2]) {
+      num1[p] = num2[p2];
+      p2--;
+    } else {
+      num1[p] = num1[p1];
+      p1--;
+    }
+    p--;
+  }
+
+  while (p2 >= 0) {
+    num1[p] = num2[p2];
+    p2--;
+    p--;
   }
 }
 
