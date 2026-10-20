@@ -2,6 +2,8 @@ function debounce(fn, delay = 300) {
   let timer;
 
   return function (...args) {
+    console.log("args",args)
+
     clearTimeout(timer);
 
     timer = setTimeout(() => {
